@@ -236,6 +236,87 @@
     display: inline-flex; align-items: center; justify-content: center;
   }
 
+  .breakdown-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    margin: 40px 0 28px;
+  }
+  @media (max-width: 920px) { .breakdown-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .breakdown-grid { grid-template-columns: 1fr; } }
+  .break-card {
+    position: relative;
+    min-height: 250px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0)),
+      var(--panel-2);
+  }
+  .break-card .when {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .break-card h3 {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 19px;
+    line-height: 1.2;
+    font-weight: 850;
+    margin-bottom: 12px;
+  }
+  .break-card p {
+    color: var(--grey-body);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .coach-fix {
+    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; align-items: center;
+    margin: 30px 0 50px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 22px;
+    padding: 32px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(201,168,76,0.14), transparent 42%),
+      linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.015));
+  }
+  @media (max-width: 760px) { .coach-fix { grid-template-columns: 1fr; padding: 26px; } }
+  .coach-fix h3 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 14px;
+  }
+  .coach-fix p {
+    color: var(--grey-body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .coach-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+  .coach-list li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: var(--grey-body);
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .coach-list li:last-child { border-bottom: none; }
+  .coach-list b {
+    color: var(--off);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .hero-chat { max-width: 430px; margin: 44px 0 0; text-align: left; }
 
   @media (max-width: 860px) {
@@ -617,44 +698,48 @@
 <section class="section wrap">
   <div class="reveal">
     <div class="section-label">The Real Problem</div>
-    <h2>A generic plan is easy. <em>Being coached through real life is different.</em></h2>
-    <p class="section-sub">ChatGPT can give you a program in ten seconds. So can old PDFs, fitness apps, and outdated internet advice. The missing piece is not more information. It is a coach who sees your schedule, your stress, your excuses, and helps you keep moving anyway.</p>
+    <h2>The plan usually works. <em>Your week is where it breaks.</em></h2>
+    <p class="section-sub">Most busy professionals do not need another perfect workout split. They need someone who catches the exact moment the plan starts slipping and adjusts it before it becomes another restart.</p>
   </div>
 
-  <div class="chat-compare reveal">
-    <div class="chat-mock">
-      <div class="chat-mock-tag">Generic information</div>
-      <div class="chat-mock-head"><span class="dot"></span> Plan without coaching</div>
-      <div class="chat-msg dead">
-        <div class="bubble">A workout split that looks good on paper.</div>
-      </div>
-      <div class="chat-msg from-them faded">
-        <div class="bubble">No context for your travel, stress, sleep, equipment, injuries, or motivation.</div>
-      </div>
-      <div class="chat-msg dead">
-        <div class="bubble">No adjustment when the week gets chaotic.</div>
-      </div>
-      <div class="chat-msg dead">
-        <div class="bubble">No mindset support when consistency gets uncomfortable.</div>
-      </div>
+  <div class="breakdown-grid reveal" aria-label="Where generic fitness plans usually break">
+    <div class="break-card">
+      <div class="when">Monday</div>
+      <h3>The plan says train.</h3>
+      <p>Your calendar says client dinner, late email, bad sleep. A PDF does not know which part to cut without losing the week.</p>
     </div>
-    <div class="chat-mock alive">
-      <div class="chat-mock-tag">Strategic coaching</div>
-      <div class="chat-mock-head"><span class="chat-avatar">D</span> Derek · Performance coaching <span class="dot" style="margin-left:auto"></span></div>
-      <div class="chat-msg from-them">
-        <div class="bubble">A plan built around your actual schedule, capacity, and equipment.</div>
-      </div>
-      <div class="chat-msg">
-        <div class="bubble">The smallest effective dose, tracked and progressed.</div>
-      </div>
-      <div class="chat-msg from-them">
-        <div class="bubble">Supportive accountability when life gets messy, not guilt or guesswork.</div>
-      </div>
+    <div class="break-card">
+      <div class="when">Wednesday</div>
+      <h3>You miss one session.</h3>
+      <p>Without a coach, one missed workout becomes a quiet negotiation: restart next week, find a better plan, disappear.</p>
     </div>
+    <div class="break-card">
+      <div class="when">Travel week</div>
+      <h3>The routine disappears.</h3>
+      <p>Hotel gym, restaurant meals, no normal schedule. This is where generic advice stops being useful.</p>
+    </div>
+    <div class="break-card">
+      <div class="when">Six weeks out</div>
+      <h3>The deadline gets real.</h3>
+      <p>Wedding, summer, photos, event. Urgency finally arrives, but now you are asking for an emergency plan.</p>
+    </div>
+  </div>
+
+  <div class="coach-fix reveal">
+    <div>
+      <h3>That is where <em>Derek steps in.</em></h3>
+      <p>Not to add complexity. To keep the plan alive when your actual life starts pushing back.</p>
+    </div>
+    <ul class="coach-list">
+      <li><b>Missed session</b><span>He cuts the week down instead of letting you restart from zero.</span></li>
+      <li><b>Travel</b><span>He gives you the minimum work that still keeps momentum.</span></li>
+      <li><b>Stress</b><span>He adjusts intensity instead of pretending recovery does not matter.</span></li>
+      <li><b>Accountability</b><span>Someone notices when the pattern starts, before it becomes another saved plan.</span></li>
+    </ul>
   </div>
 
   <div class="callout reveal">
-    A program cannot encourage you, challenge you, or adjust when life gets chaotic. <span class="g">A real coach can.</span>
+    You do not need a plan that looks good on a perfect week. <span class="g">You need a system that survives a real one.</span>
   </div>
 </section>
 
